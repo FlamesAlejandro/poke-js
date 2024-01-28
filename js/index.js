@@ -1,27 +1,33 @@
 // barra de busqueda que ejecuta la API
-document.getElementById('pokemonSearchInput').addEventListener('keyup', function (event) {
-    // Verificar si la tecla presionada fue "Enter"
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Prevenir cualquier acción por defecto
+document.getElementById('searchButton').addEventListener('click', function () {
+    const pokemonName = document.getElementById('pokemonSearchInput').value.toLowerCase();
 
-        const pokemonName = this.value.toLowerCase(); // Convertir a minúsculas para la búsqueda
-        const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Pokémon no encontrado');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data); // Aquí manejas los datos recibidos
-                displayPokemonData(data); // Función para mostrar los datos en la página
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+    // Verifica que el nombre del Pokémon no esté vacío
+    if (!pokemonName.trim()) {
+        alert("Por favor, ingrese un nombre de Pokémon.");
+        return;
     }
+
+    // URL de la API
+    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+
+    // Fetch es la funcion que nos ejecuta la API, tienes que usar la URL de la API, añadiendo el string escrito
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Pokémon no encontrado');
+            }
+            // se utiliza para leer y analizar esa respuesta como JSON
+            return response.json();
+        })
+        .then(data => {
+            // enviamos la data a la funcion de abajo
+            displayPokemonData(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Pokémon no encontrado. Por favor, intente con otro nombre.');
+        });
 });
 
 function displayPokemonData(pokemon) {
@@ -30,7 +36,7 @@ function displayPokemonData(pokemon) {
     const resultsContainer = document.getElementById('pokemonResults');
     // Obtener los tipos del Pokémon
     let types = pokemon.types.map(typeInfo => typeInfo.type.name).join(', ');
-
+    // añadimos el html a la tabla
     resultsContainer.innerHTML = `
     <tr>
         <td>${pokemon.name}</td>
