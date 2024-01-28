@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI - Mi Equipo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bg-red {
+            background-color: red;
+        }
+
+        .bg-red .navbar-brand,
+        .bg-red .navbar-toggler,
+        .bg-red .btn,
+        .footer-text {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-red">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PokeAPI</a>
+            <div class="d-flex">
+                <button class="btn btn-outline-light" type="button">Cerrar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control mb-3" id="pokemonSearchInput" placeholder="Buscar Pokémon">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pokemonSearchResults">
+                        <!-- Ejemplo estático -->
+                        <tr>
+                            <td>Pikachu</td>
+                            <td>Un Pokémon eléctrico</td>
+                            <td><button class="btn btn-primary">Agregar a Equipo</button></td>
+                        </tr>
+                        <!-- Más resultados de búsqueda aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h3>Mi Equipo Pokémon</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pokemonTeam">
+                        <!-- Ejemplo estático -->
+                        <tr>
+                            <td>Charmander</td>
+                            <td>Fuego</td>
+                            <td><button class="btn btn-danger">Quitar</button></td>
+                        </tr>
+                        <!-- Pokémon en el equipo aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-red text-white text-center py-2">
+        <p class="footer-text">© 2024 PokeAPI Project. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Aquí van tus scripts de JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
