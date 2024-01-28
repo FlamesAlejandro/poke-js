@@ -33,7 +33,7 @@ loginForm.addEventListener("submit", function (event) {
     if (result) {
         // Las credenciales son válidas, se puede permitir el inicio de sesión
         alert("Inicio de sesión exitoso!");
-        window.location.href = "./index.html";
+        window.location.href = "./mainPage.html";
     } else {
         // Las credenciales no son válidas, mostrar un mensaje de error
         alert("Credenciales incorrectas, por favor intente de nuevo");
