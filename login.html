@@ -29,7 +29,7 @@
 <body>
 
     <main class="form-signin bg-orange mt-5">
-        <form>
+        <form id="login-form">
             <div class="text-center">
                 <img class="mb-4" src="./assets/pokeapi_256.png" alt="" width="300" height="70">
             </div>
@@ -37,11 +37,11 @@
             <h1 class="h3 mb-3 fw-normal">Por favor inicia sesión</h1>
 
             <div class="form-floating mb-2">
-                <input type="user" class="form-control" id="floatingInput" placeholder="Pedrito">
+                <input type="user" class="form-control" id="user" name="user" placeholder="Pedrito">
                 <label for="floatingInput">Usuario</label>
             </div>
             <div class="form-floating mb-2">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                 <label for="floatingPassword">Contraseña</label>
             </div>
 
@@ -56,6 +56,8 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+
 </body>
 
 </html>
