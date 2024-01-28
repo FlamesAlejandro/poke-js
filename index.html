@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .container-flex {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrap {
+            flex: 1;
+        }
+
+        .bg-red {
+            background-color: red;
+        }
+
+        .bg-red .navbar-brand,
+        .bg-red .navbar-toggler,
+        .bg-red .btn,
+        .footer-text {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-flex">
+        <nav class="navbar navbar-expand-lg bg-red">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">PokeAPI</a>
+                <button class="btn btn-outline-light" type="submit">Iniciar Sesión</button>
+            </div>
+        </nav>
+
+        <div class="bg-red text-white text-center py-2">
+            <h1>Bienvenido a PokeAPI</h1>
+        </div>
+
+        <div class="content-wrap">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" class="form-control" id="pokemonSearchInput" placeholder="Buscar Pokémon">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <!-- Agrega más columnas según necesites -->
+                                </tr>
+                            </thead>
+                            <tbody id="pokemonResults">
+                                <!-- Los resultados de la búsqueda se insertarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-red text-white text-center py-2">
+            <p class="footer-text">© 2024 PokeAPI Project. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Aquí va tu script de JavaScript para interactuar con la API y manejar eventos -->
+</body>
+
+</html>
