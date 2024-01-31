@@ -60,10 +60,22 @@ function addToTeam(pokemon) {
     let types = pokemon.types.map(typeInfo => typeInfo.type.name).join(', ');
 
     teamContainer.innerHTML += `
-        <tr>
+        <tr id="team-${pokemon.name}">
             <td>${pokemon.name}</td>
             <td>${types}</td>
             <td><img src="${pokemon.sprites.front_default}" alt="${pokemon.name}"></td>
-            <td><button class="btn btn-danger">Quitar</button></td>
+            <td><button class="btn btn-danger delete-from-team" data-pokemon-name="${pokemon.name}">Quitar</button></td>
         </tr>`;
 }
+
+// Controlador de eventos para eliminar Pokémon del equipo
+document.getElementById('pokemonTeam').addEventListener('click', function (event) {
+    if (event.target.classList.contains('delete-from-team')) {
+        const pokemonName = event.target.getAttribute('data-pokemon-name');
+        const rowToDelete = document.getElementById(`team-${pokemonName}`);
+        if (rowToDelete) {
+            rowToDelete.remove();
+        }
+    }
+});
+
